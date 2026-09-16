@@ -2,6 +2,9 @@
 
 Back up your own Android phone's data to your PC over USB using ADB. Pure PowerShell — no Python required.
 
+![Setup diagram](images/setup-diagram.svg)
+![Example run](images/android-rescue-run.svg)
+
 ## What it does
 
 Pull these from any Android phone connected over USB debugging:
@@ -70,6 +73,10 @@ This tool works best for files, media and metadata; OS-level data extraction bey
 ## Legal
 
 Only use this on devices **you own**. Accessing anyone else's device without permission is a crime in most jurisdictions. This tool does not bypass any security — it uses Android's standard, user-facing USB debugging interface.
+
+## Adding real screenshots
+
+The SVG images above are illustrations. To replace them with real captures, run the tool and drop your `screen.png` (and any files) into `images/real/`, then update the markdown links above. Only add captures from your own device.
 
 ## License
 

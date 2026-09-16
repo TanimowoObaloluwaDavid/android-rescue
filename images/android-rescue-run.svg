@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="560" viewBox="0 0 920 560" font-family="Consolas, Menlo, monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1e2e"/>
+      <stop offset="100%" stop-color="#11111b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="920" height="560" fill="url(#bg)" rx="14"/>
+  <rect x="18" y="18" width="884" height="524" fill="#11111b" rx="10"/>
+
+  <circle cx="46" cy="42" r="8" fill="#f38ba8"/>
+  <circle cx="70" cy="42" r="8" fill="#f9e2af"/>
+  <circle cx="94" cy="42" r="8" fill="#a6e3a1"/>
+  <text x="150" y="48" fill="#cdd6f4" font-size="15">PowerShell — android-rescue.ps1</text>
+
+  <text x="46" y="92" fill="#a6e3a1" font-size="15">Using adb: C:\Users\LENOVO\AppData\Local\Android\Sdk\platform-tools\adb.exe</text>
+  <text x="46" y="122" fill="#a6e3a1" font-size="15">Device connected: R58M82XYZ0U</text>
+
+  <text x="46" y="160" fill="#89b4fa" font-size="15">=== 1/8 Device info ===</text>
+  <text x="46" y="188" fill="#cdd6f4" font-size="14">Vehicle:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Google&nbsp;&nbsp;Pixel 7</text>
+  <text x="46" y="210" fill="#cdd6f4" font-size="14">Platform:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Android 14 (SDK 34)</text>
+  <text x="46" y="232" fill="#cdd6f4" font-size="14">Battery:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;52%</text>
+
+  <text x="46" y="268" fill="#89b4fa" font-size="15">=== 2/8 Media &amp; documents ===</text>
+  <text x="46" y="296" fill="#cdd6f4" font-size="14">  DCIM ......... OK</text>
+  <text x="46" y="318" fill="#cdd6f4" font-size="14">  Pictures ..... OK</text>
+  <text x="46" y="340" fill="#cdd6f4" font-size="14">  Download ..... OK</text>
+  <text x="46" y="362" fill="#cdd6f4" font-size="14">  WhatsApp ..... OK</text>
+
+  <text x="46" y="398" fill="#89b4fa" font-size="15">=== 3/8 App list ===</text>
+  <text x="46" y="426" fill="#cdd6f4" font-size="14">  apps_user.txt + apps_all.txt</text>
+
+  <text x="46" y="462" fill="#89b4fa" font-size="15">=== 4/8 Contacts ===</text>
+  <text x="46" y="490" fill="#f9e2af" font-size="14">  permission blocked by Android</text>
+
+  <text x="46" y="526" fill="#a6e3a1" font-size="15">Done. Backup at: .\backup_20260916_141233</text>
+</svg>

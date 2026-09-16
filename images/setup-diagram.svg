@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="360" viewBox="0 0 920 360" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="920" height="360" fill="#0f172a"/>
+  <rect x="30" y="80" width="180" height="220" rx="18" fill="#1e293b" stroke="#334155" stroke-width="3"/>
+  <rect x="42" y="92" width="156" height="196" rx="12" fill="#334155"/>
+  <rect x="150" y="300 " width="0" height="0"/>
+  <circle cx="120" cy="120" r="6" fill="#22d3ee"/>
+  <rect x="60" y="150" width="120" height="12" rx="6" fill="#475569"/>
+  <rect x="60" y="175" width="90" height="12" rx="6" fill="#475569"/>
+  <rect x="60" y="200" width="105" height="12" rx="6" fill="#475569"/>
+  <rect x="60" y="225" width="75" height="12" rx="6" fill="#475569"/>
+  <text x="120" y="272" text-anchor="middle" fill="#94a3b8" font-size="16">Android phone</text>
+  <text x="120" y="292" text-anchor="middle" fill="#64748b" font-size="13">USB debugging ON</text>
+
+  <line x1="215" y1="190" x2="380" y2="190" stroke="#22d3ee" stroke-width="5" stroke-dasharray="10 6"/>
+  <text x="297" y="170" text-anchor="middle" fill="#22d3ee" font-size="14">USB</text>
+  <text x="297" y="215" text-anchor="middle" fill="#64748b" font-size="13">adb</text>
+
+  <rect x="390" y="80" width="220" height="220" rx="14" fill="#111827" stroke="#22d3ee" stroke-width="3"/>
+  <rect x="410" y="100" width="180" height="180" rx="8" fill="#0b1220"/>
+  <text x="500" y="140" text-anchor="middle" fill="#a5f3fc" font-size="15">android-rescue.ps1</text>
+  <rect x="420" y="160" width="160" height="12" rx="6" fill="#1e293b"/>
+  <rect x="420" y="185" width="160" height="12" rx="6" fill="#1e293b"/>
+  <rect x="420" y="210" width="120" height="12" rx="6" fill="#1e293b"/>
+  <rect x="420" y="235" width="145" height="12" rx="6" fill="#16a34a"/>
+  <text x="500" y="275" text-anchor="middle" fill="#4ade80" font-size="13">Pull data</text>
+
+  <line x1="615" y1="190" x2="790" y2="190" stroke="#f59e0b" stroke-width="5" stroke-dasharray="10 6"/>
+  <text x="702" y="170" text-anchor="middle" fill="#f59e0b" font-size="14">download</text>
+  <text x="702" y="215" text-anchor="middle" fill="#64748b" font-size="13">backup_2026_*.zip</text>
+
+  <rect x="795" y="115" width="110" height="150" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
+  <text x="850" y="150" text-anchor="middle" fill="#fdba74" font-size="14">Your PC</text>
+  <rect x="815" y="170" width="70" height="12" rx="6" fill="#334155"/>
+  <rect x="815" y="190" width="55" height="12" rx="6" fill="#334155"/>
+  <rect x="815" y="210" width="62" height="12" rx="6" fill="#334155"/>
+  <text x="850" y="240" text-anchor="middle" fill="#94a3b8" font-size="12">photos, apps,</text>
+  <text x="850" y="255" text-anchor="middle" fill="#94a3b8" font-size="12">contacts, report</text>
+</svg>
