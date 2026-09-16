@@ -6,6 +6,8 @@ Back up your own Android phone to your PC over USB with one command. Uses Androi
 
 ![Example run](images/android-rescue-run.svg)
 
+![Demo](images/android-rescue-demo.gif)
+
 ---
 
 ## Why?
