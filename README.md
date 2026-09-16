@@ -1,51 +1,62 @@
 # Android Rescue
 
-Back up your own Android phone's data to your PC over USB using ADB. Pure PowerShell — no Python required.
+Back up your own Android phone to your PC over USB with one command. Uses Android's standard ADB interface — **no rooting, no exploits, no data sent anywhere, pure PowerShell**.
 
 ![Setup diagram](images/setup-diagram.svg)
+
 ![Example run](images/android-rescue-run.svg)
 
-## What it does
+---
 
-Pull these from any Android phone connected over USB debugging:
+## Why?
 
-| Step | Output |
-|------|--------|
-| Device info | `device_info.txt` (model, Android version, battery, storage, uptime) |
-| Media | `DCIM`, `Pictures`, `Download`, `Documents`, `Music`, `Movies`, `WhatsApp`, `Telegram`, `VOIP` |
-| Apps | `apps_user.txt` + `apps_all.txt` (installed apps) |
-| Contacts | `contacts.txt` (display name + number) |
-| SMS | `sms.txt` (address, date, body) |
-| Call log | `call_log.txt` (number, date, duration, type) |
-| Screenshot | `screen.png` |
-| Full backup | optional `full_backup.ab` via `adb backup` |
-| Report | `REPORT.txt` + everything zipped automatically |
+- Your phone's the only copy of your photos, WhatsApp history, documents, and downloads.
+- One command pulls everything into a timestamped folder and zips it.
+- No Python, no Node, no cloud accounts — just `adb.exe` and PowerShell.
+
+## Features
+
+| What | Where it lands |
+|------|----------------|
+| Device info — model, Android version, battery, storage | `device_info.txt` |
+| Photos & video — `DCIM`, `Pictures`, `Screenshots` | `DCIM/`, `Pictures/` |
+| Files — `Download`, `Documents`, `Music`, `Movies` | dedicated folders |
+| Messaging media — `WhatsApp`, `Telegram`, `VOIP` | dedicated folders |
+| Installed apps (user + all) | `apps_user.txt`, `apps_all.txt` |
+| Contacts | `contacts.txt` |
+| SMS log | `sms.txt` |
+| Call log | `call_log.txt` |
+| Screenshot of the current screen | `screen.png` |
+| Full system backup (optional) | `full_backup.ab` |
+| Summary + everything zipped | `REPORT.txt`, `backup_....zip` |
 
 ## Requirements
 
-- Windows (PowerShell 5.1+)
-- [Google platform-tools](https://dl.google.com/android/repository/platform-tools-latest-windows.zip) (contains `adb.exe`)
+- Windows with PowerShell 5.1+
+- [Google platform-tools](https://dl.google.com/android/repository/platform-tools-latest-windows.zip) → unzip to `C:\platform-tools`
 - Android phone with **USB debugging** enabled
 
-## Setup (one-time, on the phone)
+## One-time phone setup
 
-1. `Settings > About phone` — tap **Build number** 7 times to unlock Developer Options.
-2. `Settings > System > Developer options` — enable **USB debugging**.
-3. Plug the phone in via USB and accept the RSA fingerprint dialog.
+1. `Settings > About phone` — tap **Build number** 7 times (unlocks Developer Options).
+2. `Settings > System > Developer options` — turn on **USB debugging**.
+3. Connect via USB and accept the RSA fingerprint dialog on the phone.
 
-> Note: Android 11+ shows a per-connection "Allow USB debugging" prompt each time — tap **Allow**.
+> Android 11+ asks again on each new computer/connection — tap **Allow**.
 
-## Usage
+## Quick start
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File android-rescue.ps1
 ```
 
-### Options
+That's it. Confirm the device listed is yours, then wait — media folders stream over USB and everything gets zipped into `backup_20260916_141233/` (your actual date/time).
+
+## Options
 
 ```powershell
 -OutDir "backup_2026"      # custom output folder
--SkipMedia                 # skip DCIM/Pictures/etc.
+-SkipMedia                 # skip DCIM/Pictures/etc. (faster)
 -SkipApps                  # skip app list
 -SkipContacts              # skip contacts
 -SkipSms                   # skip SMS
@@ -55,29 +66,44 @@ powershell -ExecutionPolicy Bypass -File android-rescue.ps1
 -FullBasebackup            # also run adb backup -apk -shared -all
 ```
 
-Example:
+Examples:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File android-rescue.ps1 -SkipMedia -FullBasebackup
+# Fast run — just documents and apps
+powershell -ExecutionPolicy Bypass -File android-rescue.ps1 -SkipMedia -SkipContacts -SkipSms -SkipCallLog
+
+# Everything including a full backup (unlock phone when prompted)
+powershell -ExecutionPolicy Bypass -File android-rescue.ps1 -FullBasebackup
 ```
 
-## Notes on blocked items
+## Why some things show as blocked
 
-Android restricts `content://sms`, `content://call_log` and raw contact queries on most modern devices for privacy — those rows will show as **blocked** and you'll get an empty/partial file. For a full picture, use:
+Modern Android privacy protections restrict direct access to SMS, call logs, and raw contacts, even over ADB. The tool reports them honestly as **blocked** rather than pretending. For those, use:
 
-- **Samsung Smart Switch** — its PC backup gets SMS, contacts and call logs on Samsung phones.
-- **Google / OEM backup** — the phone's own cloud backup (Settings > System > Backup).
+- **Samsung Smart Switch** — pulls SMS, contacts, and call logs on Samsung phones.
+- **Google / OEM cloud backup** — `Settings > System > Backup`.
 
-This tool works best for files, media and metadata; OS-level data extraction beyond that is not possible without root, and rooting your device is a separate, vendor-dependent process.
+Everything else — files, media, apps, metadata — works without root on any device.
+
+## FAQ
+
+**Is this a hack?**
+No. It uses `adb pull` and `adb backup`, the same official debugging interface used by Android developers every day. Nothing is bypassed.
+
+**Does my data leave my PC?**
+No network calls. Drive letters only.
+
+**Can I change where backups go?**
+Yes — run it from another folder, or pass `-OutDir "D:\backups\phone"`.
 
 ## Legal
 
-Only use this on devices **you own**. Accessing anyone else's device without permission is a crime in most jurisdictions. This tool does not bypass any security — it uses Android's standard, user-facing USB debugging interface.
+Use this only on devices **you own**. Accessing anyone else's phone without their permission is illegal in most jurisdictions. By running this tool you confirm you have the right to access the connected device.
 
 ## Adding real screenshots
 
-The SVG images above are illustrations. To replace them with real captures, run the tool and drop your `screen.png` (and any files) into `images/real/`, then update the markdown links above. Only add captures from your own device.
+The SVGs above are illustrations. Run the tool on your own phone, then drop actual captures into `images/real/` and update the links.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE) © TanimowoObaloluwaDavid
